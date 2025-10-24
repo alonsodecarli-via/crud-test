@@ -428,8 +428,11 @@ Utilizam *JUnit 5* para estruturação e *Mockito* para simular dependências.
     <img width="600" src="images/produto-service-test1.png" alt="Teste unitário da classe ProdutoService" />
 
 ✅ **Destaques:**
-* `@Mock` → simula dependências externas.
-* `@InjectMocks` → injeta automaticamente mocks no serviço.
+* `@Mock` → simula dependências externas (recurso simulado), ou seja, cria um mock (objeto falso) de uma classe ou interface, controlado pelo Mockito.
+* `@InjectMocks` → injeta automaticamente mocks no serviço (recurso real com mocks injetados), ou seja, cria uma instância real da classe de serviço (ou controlador) e injeta automaticamente os mocks nas dependências dela.
+    * o que faz: 
+        * Instancia o objeto real da classe que queremos testar.
+        * Injeta automaticamente todos os objetos anotados com @Mock nos campos correspondentes dessa classe.
 * `@BeforeEach` → inicializa mocks antes de cada teste.
 * `when(...).thenReturn(...)` → define comportamento simulado.
 * `assertEquals`, `assertNotNull` → valida resultados esperados.
